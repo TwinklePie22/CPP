@@ -20,15 +20,13 @@ void stack::init()
 void stack::push()
 
 {
-    int i;
     if (top == size)
     {
         cout << "Stack overflowl \n";
         return;
     }
     cout << "Enter element: ";
-    cin >> i;
-    stack[top] = i;
+    cin >> stack[top];
     top++;
 }
 
