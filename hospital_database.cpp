@@ -1,99 +1,92 @@
 #include <iostream>
-#include <string>
-#include <vector>
 using namespace std;
-class Patient
+
+struct date {
+    int d;
+    int m;
+    int y;
+};
+
+class Hospital
 {
+    char name[100];
+    struct date d_adm;
+    struct date d_dis;
 protected:
-    string name;
     int age;
-    string address;
-    string diagnosis;
 public:
-    void enterInfo()
+    void getdata()
     {
-        cout << "Enter patient name: ";
-        cin>>name;
-        cout << "Enter patient age: ";
+        cout << "Enter name of the patient: ";
+        cin >> name;
+        cout << "Enter age: ";
         cin >> age;
-        cout << "Enter patient address: ";
-        cin>>address;
-        cout << "Enter diagnosis: ";
-        cin>>diagnosis;
+        cout << "Enter date of admission (day month year):\n";
+        cin >> d_adm.d >> d_adm.m >> d_adm.y;
+        cout << "Enter date of discharge (day month year): \n";
+        cin >> d_dis.d >> d_dis.m >> d_dis.y;
     }
-    void displayInfo()
+
+    void display()
     {
-        cout << "Name: " << name << endl;
-        cout << "Age: " << age << endl;
-        cout << "Address: " << address << endl;
-        cout << "Diagnosis: " << diagnosis << endl;
+        cout << name<<"\t\t";
+        cout << age<<"\t\t";
+        cout << d_adm.d << '-' << d_adm.m << '-' << d_adm.y<< "\t\t";
+        cout << d_dis.d << '-' << d_dis.m << '-' << d_dis.y<<"\t\t"<<endl;
     }
 };
-class PediatricPatient : public Patient
+
+class PediatricPatient : public Hospital
 {
-private:
-    string guardianName;
 public:
-    void enterInfo()
+    char vaccine[20];
+
+    void get()
     {
-        Patient::enterInfo();
-        cout << "Enter guardian's name: ";
-        cin>>guardianName;
+        getdata();
+        cout << "Enter the name of the vaccine to be given: ";
+        cin >> vaccine;
     }
-    void displayInfo()
+
+    void put()
     {
-        Patient::displayInfo();
-        cout << "Guardian's Name: " << guardianName <<"\n";
+        if (age < 12) {
+            display();
+            cout << vaccine;
+            cout << "\n";
+        } else {
+            cout << "Age greater than 12, not a pediatric patient\n";
+        }
     }
 };
+
 int main()
 {
-    const int MAX_PATIENTS = 100;
-    Patient *patients[MAX_PATIENTS];
-    int numPatients = 0;
-    int choice;
-    while(1){
-        cout << "\n1-Add a patient\n2-Display all patients\n3-Exit\n";
-        cout << "Enter your choice: ";
-        cin >> choice;
-        switch (choice) {
-        case 1: {
-            char patientType;
-            cout << "Enter patient type (P for pediatric, A for adult): ";
-            cin >> patientType;
-            if (patientType == 'P') {
-                PediatricPatient *pedPatient = new PediatricPatient();
-                pedPatient->enterInfo();
-                patients[numPatients] = pedPatient;
-                numPatients++;
-            } else if (patientType == 'A') {
-                Patient *patient = new Patient();
-                patient->enterInfo();
-                patients[numPatients] = patient;
-                numPatients++;
-            } else {
-                cout << "Invalid patient type." << endl;
-            }
-            break;
-        }
-        case 2:
-            if (numPatients == 0) {
-                cout << "No patients in the database." << endl;
-            } else {
-                for (int i = 0; i < numPatients; i++) {
-                    cout << "Patient " << (i + 1) << ":" << endl;
-                    patients[i]->displayInfo();
-                    cout << endl;
-                }
-            }
-            break;
-        case 3:
-            cout << "Exiting program\n";
-            exit(0);
-            break;
-        default:
-            cout << "Invalid choice" << endl;
-        }
-    } 
+    Hospital h[5];
+    int n;
+    cout << "Enter the number of patients: ";
+    cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        h[i].getdata();
+    }
+
+    cout << "\nPatient database:\n";
+    cout << "NAME" << "\t" << "AGE" << "\t" << "DATE OF ADMISSION" << "\t" << "DATE OF DISCHARGE\n";
+    for (int i = 0; i < n; i++) {
+        h[i].display();
+        cout << "\n";
+    }
+    PediatricPatient a1[5];
+    cout << "\nEnter the number of pediatric patients: ";
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        a1[i].get();
+    }
+    cout << "\nPediatric Patient database:\n";
+    cout << "NAME" << "\t" << "AGE" << "\t" << "DATE OF ADMISSION" << "\t" << "DATE OF DISCHARGE" << "\t" << "VACCINE\n";
+    for (int i = 0; i < n; i++) {
+        a1[i].put();
+    }
     return 0;
 }
