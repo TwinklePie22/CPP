@@ -21,11 +21,9 @@ public:
 int ObjectCounter::count = 0; // Initialize static variable
 int main()
 {
-    ObjectCounter obj1;
-    ObjectCounter obj2;
+    ObjectCounter obj1, obj2;
     cout << "Number of objects: " << ObjectCounter::getCount() << endl; // Output: 2
-    ObjectCounter obj3;
-    ObjectCounter obj4;
+    ObjectCounter obj3, obj4;
     cout << "Number of objects: " << ObjectCounter::getCount() << endl; // Output: 4
     return 0;
 }
