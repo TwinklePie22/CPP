@@ -51,7 +51,7 @@ void stack::display()
         cout << "Stack is empty \n";
         return;
     }
-    for (int i = 0; i < tos; i++)
+    for (int i = 0; i < top; i++)
     {
        cout << stack[i] << "\n";
     }
