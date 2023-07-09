@@ -22,8 +22,7 @@ public:
 int SharedResource::resource = 0;
 int main()
 {
-    SharedResource obj1;
-    SharedResource obj2;
+    SharedResource obj1, obj2;
     SharedResource::setResourceCount(5);
     obj1.accessResource(); // Access granted
     obj2.accessResource(); // Access granted
