@@ -40,7 +40,7 @@ void stud::disp()
     for (int i = 0; i < 3; i++) {
         cout << marks[i] << " ";
     }
-    cout << avg << "\n"<<endl;
+    cout <<"\nAverage="<< avg << "\n"<<endl;
 }
 int main()
 {
