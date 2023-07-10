@@ -62,11 +62,7 @@ int main()
             topper = i;
         }
     }
-    for (i = 0; i < n; i++) {
-        if (s[topper].avg == s[i].avg) {
-            cout << "\nThe toppers is student " << i + 1 << ": ";
-            cout << "\nDetails:-\n";
-            s[i].disp();
-        }
-    }
+    cout << "\nThe toppers is student " << i + 1 << ": ";
+    cout << "\nDetails:-\n";
+    s[topper].disp();
 }
