@@ -53,22 +53,7 @@ int main()
         s[i].read(i);
         s[i].calc(n);
     }
-    for (i = 0; i < n; i++)
-        s[i].disp();
-    for (i = 0; i < n; i++) {
-        if (max < s[i].avg) {
-            max = s[i].avg;
-            topper = i;
-        }
-    }
-    for (i = 0; i < n; i++) {
-        if (s[topper].avg == s[i].avg) {
-            cout << "\nThe toppers is student " << i + 1 << ": ";
-            cout << "\nDetails:-\n";
-            s[i].disp();
-        }
-    }
-    cout<<"\nStudent details- ";
+    cout<<"\nStudent details- \n";
     for (i = 0; i < n; i++)
         s[i].disp();
     for (i = 0; i < n; i++) {
