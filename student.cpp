@@ -44,7 +44,7 @@ void stud::disp()
 }
 int main()
 {
-    int n, topper, i, z;
+    int n, topper, i;
     float max = 0;
     cout << "\nEnter the number of students: ";
     cin >> n;
