@@ -12,7 +12,7 @@ int main()
     int n, i;
     cout << "Enter no. of entries : ";
     cin >> n;
-    struct bank b[n];
+    struct bank arr[n];
     ofstream outfile("F:\\bank.txt");
     if (!outfile)
     {
@@ -22,12 +22,12 @@ int main()
     for (i = 0; i < n; i++)
     {
         cout << "\nEnter name of customer " << i + 1 << ": ";
-        cin >>b[i].name;
+        cin >>arr[i].name;
         cout << "Enter a/c number of customer " << i + 1 << ": ";
-        cin >> b[i].acc ;
+        cin >> arr[i].acc ;
         cout << "Enter balamce of customer " << i + 1 << ": ";
-        cin >>b[i].bal;
-        outfile.write((char *)&b[i], sizeof(struct bank));
+        cin >>arr[i].bal;
+        outfile.write((char *)&arr[i], sizeof(struct bank));
     }
     outfile.close();
     
@@ -42,10 +42,10 @@ int main()
         if (infile)
         {   
             cout<<"\nDetails of customer "<<i+1;
-            infile.read((char *)&b[i], sizeof(struct bank));
-            cout << "Name : " << b[i].name << "\n";
-            cout << "A/c number  : " << b[i].acc << "\n";
-            cout << "Balance (in INR) : " << b[i].bal << "\n";
+            infile.read((char *)&arr[i], sizeof(struct bank));
+            cout << "Name : " << arr[i].name << "\n";
+            cout << "A/c number  : " << arr[i].acc << "\n";
+            cout << "Balance (in INR) : " << arr[i].bal << "\n";
         }
     }
 
