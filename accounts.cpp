@@ -13,7 +13,7 @@ int main()
     cout << "Enter no. of entries : ";
     cin >> n;
     struct bank b[n];
-    ofstream outfile("bank.txt", ios::out);
+    ofstream outfile("F:\\bank.txt");
     if (!outfile)
     {
         cout << "Cannot outfileen file \n";
@@ -21,17 +21,17 @@ int main()
     }
     for (i = 0; i < n; i++)
     {
-        cout << "\nEnter a/c number of customer " << i + 1 << ": ";
-        cin >> b[i].acc ;
-        cout << "Enter name of customer " << i + 1 << ": ";
+        cout << "\nEnter name of customer " << i + 1 << ": ";
         cin >>b[i].name;
+        cout << "Enter a/c number of customer " << i + 1 << ": ";
+        cin >> b[i].acc ;
         cout << "Enter balamce of customer " << i + 1 << ": ";
         cin >>b[i].bal;
         outfile.write((char *)&b[i], sizeof(struct bank));
     }
     outfile.close();
     
-    ifstream infile("bank.txt", ios::in);
+    ifstream infile("F:\\bank.txt");
     if (!infile)
     {
         cout << "File doesn't exists \n";
@@ -43,8 +43,8 @@ int main()
         {   
             cout<<"\nDetails of customer "<<i+1;
             infile.read((char *)&b[i], sizeof(struct bank));
-            cout << "A/c number  : " << b[i].acc << "\n";
             cout << "Name : " << b[i].name << "\n";
+            cout << "A/c number  : " << b[i].acc << "\n";
             cout << "Balance (in INR) : " << b[i].bal << "\n";
         }
     }
