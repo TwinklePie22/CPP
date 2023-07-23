@@ -1,5 +1,3 @@
-// 15.	Sorting using Generic classes
-
 #include <iostream>
 #include <cstdlib>
 using namespace std;
