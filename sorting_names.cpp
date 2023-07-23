@@ -5,16 +5,16 @@
 using namespace std;
 int main()
 {
-    ifstream input("F:\\input.txt"); // input
-    if (!input)
+    ifstream infile("F:\\input.txt"); // infile
+    if (!infile)
     {
-        cout << "Cannot open input file.\n";
+        cout << "Cannot open infile file.\n";
         return 1;
     }
-    ofstream output("TextFile1.txt"); // output
-    if (!output)
+    ofstream outfile("TextFile1.txt"); // outfile
+    if (!outfile)
     {
-        cout << "Cannot open output file.\n";
+        cout << "Cannot open outfile file.\n";
         return 1;
     }
     char str[5][20];
@@ -23,7 +23,7 @@ int main()
     cout << "file contents \n";
     for (int i = 0; i < 5; i++)
     {
-        input >> str[i];
+        infile >> str[i];
         cout << str[i] << endl;
     }
     for (i = 1; i < 5; i++)
@@ -42,6 +42,6 @@ int main()
     for (i = 0; i < 5; i++)
     {
         cout << str[i] << "\n";
-        output << str[i] << "\n";
+        outfile << str[i] << "\n";
     }
 }
