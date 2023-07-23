@@ -19,7 +19,7 @@ int main()
         cout << "Cannot open file\n";
         return 1;
     }
-    outfile << "Name,Account Number,Balance\n";
+    outfile << "Name  |  Account Number  |  Balance\n";
     for (int i = 0; i < n; i++)
     {
         cout << "\nEnter name of customer " << i + 1 << ": ";
@@ -28,7 +28,7 @@ int main()
         cin >> arr[i].acc;
         cout << "Enter balance of customer " << i + 1 << ": ";
         cin >> arr[i].bal;
-        outfile << arr[i].name << "," << arr[i].acc << "," << arr[i].bal << "\n";
+        outfile << arr[i].name << "  |  " << arr[i].acc << "  |  " << arr[i].bal << "\n";
     }
     outfile.close();
     ifstream infile("F:\\bank.txt");
@@ -42,7 +42,7 @@ int main()
     for (int i = 0; i < n; i++)
     {
         cout << "\nDetails of customer " << i + 1 << endl;
-        getline(infile, arr[i].name, ',');
+        getline(infile, arr[i].name,'|');
         infile >> arr[i].acc;
         infile.ignore(); // Ignore the comma
         infile >> arr[i].bal;
