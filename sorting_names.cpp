@@ -1,19 +1,18 @@
 #include <iostream>
 #include <fstream>
 #include <cstring>
-// #include <string.h>
 
 using namespace std;
 int main()
 {
-    ifstream in("F:\\input.txt"); // input
-    if (!in)
+    ifstream input("F:\\input.txt"); // input
+    if (!input)
     {
         cout << "Cannot open input file.\n";
         return 1;
     }
-    ofstream out("TextFile1.txt"); // output
-    if (!out)
+    ofstream output("TextFile1.txt"); // output
+    if (!output)
     {
         cout << "Cannot open output file.\n";
         return 1;
@@ -24,7 +23,7 @@ int main()
     cout << "file contents \n";
     for (int i = 0; i < 5; i++)
     {
-        in >> str[i];
+        input >> str[i];
         cout << str[i] << endl;
     }
     for (i = 1; i < 5; i++)
@@ -43,7 +42,6 @@ int main()
     for (i = 0; i < 5; i++)
     {
         cout << str[i] << "\n";
-        out << str[i] << "\n";
+        output << str[i] << "\n";
     }
 }
-
