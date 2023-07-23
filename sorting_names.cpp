@@ -34,7 +34,7 @@ int main()
             {
                 strcpy(temp, str[j - 1]);
                 strcpy(str[j - 1], str[j]);
-                strcpy(str[j], tem[);
+                strcpy(str[j], temp);
             }
         }
     }
