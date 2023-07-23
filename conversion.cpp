@@ -38,7 +38,7 @@ public:
         disp();
     }
 };
-class pd : public rs
+class pound : public rs
 {
 
     float pnd;
@@ -55,16 +55,17 @@ public:
 };
 int main()
 {
-    int c;
+    int choice;
     doll d;
     euro e;
-    pd p;
+    pound p;
     cout << "\tCurrency conversion\n";
     while (1)
     {
         cout << "1-$ to Rs 2-Euro to Rs 3-Pound to Rs 4-Exit\n";
-        cin>>c;
-        switch (c)
+        cout<<"Enter your choice : ";
+        cin>>choice;
+        switch (choice)
         {
         case 1:
             d.conv();
