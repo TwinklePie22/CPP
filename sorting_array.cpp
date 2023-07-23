@@ -5,15 +5,15 @@ template <class X>
 void bubble(X *items, int count)
 {
    // register int a, b;
-    X t;
+    X temp;
     for (int a = 1; a < count; a++)
         for (int b = count - 1; b >= a; b--)
             if (items[b - 1] > items[b])
             {
-                t= items[b-1];
+                temp= items[b-1];
                 // exchange elements t = items[b-1];
                 items[b - 1] = items[b];
-                items[b] = t;
+                items[b] = temp;
             }
 }
 int main()
