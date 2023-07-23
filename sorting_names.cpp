@@ -5,13 +5,13 @@
 using namespace std;
 int main()
 {
-    ifstream infile("F:\\input.txt"); // infile
+    ifstream infile("F:\\input.txt"); // input file
     if (!infile)
     {
         cout << "Cannot open infile file.\n";
         return 1;
     }
-    ofstream outfile("TextFile1.txt"); // outfile
+    ofstream outfile("TextFile1.txt"); // output file
     if (!outfile)
     {
         cout << "Cannot open outfile file.\n";
