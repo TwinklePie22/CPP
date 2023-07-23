@@ -18,7 +18,7 @@ int main()
         return 1;
     }
     char str[5][20];
-    char t[20];
+    char temp[20];
     int i, j;
     cout << "file contents \n";
     for (int i = 0; i < 5; i++)
@@ -32,9 +32,9 @@ int main()
         {
             if (strcmp(str[j - 1], str[j]) > 0)
             {
-                strcpy(t, str[j - 1]);
+                strcpy(temp, str[j - 1]);
                 strcpy(str[j - 1], str[j]);
-                strcpy(str[j], t);
+                strcpy(str[j], tem[);
             }
         }
     }
