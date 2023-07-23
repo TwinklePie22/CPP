@@ -11,24 +11,24 @@ int main()
         cout << "Cannot open infile file.\n";
         return 1;
     }
-    ofstream outfile("TextFile1.txt"); // output file
+    ofstream outfile("F:\\TextFile1.txt"); // output file
     if (!outfile)
     {
         cout << "Cannot open outfile file.\n";
         return 1;
     }
-    char str[5][20];
+    char str[10][20];
     char temp[20];
     int i, j;
-    cout << "file contents \n";
-    for (int i = 0; i < 5; i++)
+    cout << "File contents \n";
+    for (int i = 0; i < 10; i++)
     {
         infile >> str[i];
         cout << str[i] << endl;
     }
-    for (i = 1; i < 5; i++)
+    for (i = 1; i < 10; i++)
     {
-        for (j = 1; j < 5; j++)
+        for (j = 1; j < 10; j++)
         {
             if (strcmp(str[j - 1], str[j]) > 0)
             {
@@ -39,7 +39,7 @@ int main()
         }
     }
     cout << "Strings (Names) in alphabetical order : \n";
-    for (i = 0; i < 5; i++)
+    for (i = 0; i < 10; i++)
     {
         cout << str[i] << "\n";
         outfile << str[i] << "\n";
